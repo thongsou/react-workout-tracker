@@ -25,6 +25,15 @@ class Workout extends Component {
     this.setState({ reps: event.target.value });
   };
 
+  handleEnter = (event) => {
+    const myExercise = {
+      exerciseName: this.name,
+      sets: this.sets,
+      reps: this.reps,
+    };
+    this.state.exercises.push({ myExercise });
+  };
+
   render() {
     return (
       <div>
@@ -46,6 +55,9 @@ class Workout extends Component {
           onChange={this.handleRepsChange}
           placeholder={"Number of Reps"}
         ></input>
+        <button onClick={this.handleEnter} className="btn btn-primary">
+          Enter
+        </button>
         <Exercise />
       </div>
     );
