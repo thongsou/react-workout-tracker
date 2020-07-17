@@ -4,31 +4,13 @@ class Exercise extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: "",
-      sets: "",
-      reps: "",
-      rpe: "",
-    };
+    this.state = {};
   }
-
-  handleNameChange = (event) => {
-    this.setState({
-      name: event.target.value,
-    });
-  };
 
   render() {
     return (
       <form>
-        <div>
-          <label>Name of Exercise</label>
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.handleNameChange}
-          />
-        </div>
+        <div></div>
       </form>
     );
   }
