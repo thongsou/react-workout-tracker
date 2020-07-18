@@ -26,12 +26,14 @@ class Workout extends Component {
   };
 
   handleEnter = (event) => {
-    const myExercise = {
-      exerciseName: this.name,
-      sets: this.sets,
-      reps: this.reps,
-    };
-    this.state.exercises.push({ myExercise });
+    const newArray = [
+      {
+        exerciseName: this.state.name,
+        sets: this.state.sets,
+        reps: this.state.reps,
+      },
+    ];
+    this.setState({ exercises: newArray });
   };
 
   render() {
