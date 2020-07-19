@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Exercise from "./exercise";
 import Modal from "react-modal";
 
-class Workout extends Component {
+class WorkoutCopy extends Component {
   constructor(props) {
     super(props);
 
@@ -106,4 +106,4 @@ class Workout extends Component {
   }
 }
 
-export default Workout;
+export default WorkoutCopy;
