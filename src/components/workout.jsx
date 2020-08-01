@@ -8,6 +8,7 @@ class Workout extends Component {
 
     this.state = {
       exercises: [],
+      id: 0,
       name: "",
       sets: "",
       reps: "",
@@ -36,10 +37,12 @@ class Workout extends Component {
   };
 
   handleEnter = (event) => {
+    this.setState({ id: this.state.id + 1 });
     let newArray = [];
     this.state.exercises.length === 0
       ? (newArray = [
           {
+            id: this.state.id,
             exerciseName: this.state.name,
             sets: this.state.sets,
             reps: this.state.reps,
@@ -48,6 +51,7 @@ class Workout extends Component {
       : (newArray = [
           ...this.state.exercises,
           {
+            id: this.state.id,
             exerciseName: this.state.name,
             sets: this.state.sets,
             reps: this.state.reps,
@@ -95,12 +99,17 @@ class Workout extends Component {
             onChange={this.handleRepsChange}
             placeholder={"Number of Reps"}
           ></input>
-          <button onClick={this.handleEnter} className="btn btn-primary">
-            Enter
-          </button>
-          <Exercise />
+          <button onClick={this.handleEnter}>Enter</button>
           <button onClick={this.closeModal}>Close</button>
         </Modal>
+        {this.state.exercises.map((exercise) => (
+          <Exercise
+            key={exercise.id}
+            name={exercise.name}
+            sets={exercise.sets}
+            reps={exercise.reps}
+          />
+        ))}
       </div>
     );
   }
