@@ -1,8 +1,8 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
-body {
+.body {
   background-color: orange;
 }
 

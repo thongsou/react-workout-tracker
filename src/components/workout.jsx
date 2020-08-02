@@ -38,33 +38,22 @@ class Workout extends Component {
 
   handleEnter = (event) => {
     this.setState({ id: this.state.id + 1 });
-    let newArray = [];
-    this.state.exercises.length === 0
-      ? (newArray = [
-          {
-            id: this.state.id,
-            exerciseName: this.state.name,
-            sets: this.state.sets,
-            reps: this.state.reps,
-          },
-        ])
-      : (newArray = [
-          ...this.state.exercises,
-          {
-            id: this.state.id,
-            exerciseName: this.state.name,
-            sets: this.state.sets,
-            reps: this.state.reps,
-          },
-        ]);
-
+    let newArray = this.state.exercises;
+    newArray.push({
+      key: this.state.id,
+      name: this.state.name,
+      sets: this.state.sets,
+      reps: this.state.reps,
+    });
     this.setState({ exercises: newArray });
   };
 
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: "left" }}>Tony's Workout Tracker</h1>
+        <h1 style={({ textAlign: "left" }, { color: "orange" })}>
+          Thongsou Yang's Workout Tracker
+        </h1>
         <button onClick={this.openModal} style={{ marginLeft: "auto" }}>
           <h3>Add an Exercise +</h3>
         </button>
