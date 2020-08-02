@@ -1,9 +1,10 @@
 .App {
   text-align: left;
+  background-color: black;
 }
 
-.body {
-  background-color: orange;
+html {
+  background-color: black;
 }
 
 .App-logo {
