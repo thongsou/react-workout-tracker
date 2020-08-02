@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as ReactBootStrap from "react-bootstrap";
+import Weights from "./weights";
 
 class Exercise extends Component {
   constructor(props) {
@@ -11,12 +12,7 @@ class Exercise extends Component {
       sets: this.props.sets,
       reps: this.props.reps,
     };
-    var count = "";
   }
-
-  handleWeightsChange = (event) => {
-    this.count = event.target.value;
-  };
 
   renderSetsWithReps = () => {
     var arr = [];
@@ -32,14 +28,7 @@ class Exercise extends Component {
     var arr = [];
     var numOfCols = this.state.sets;
     for (var i = 0; i < numOfCols; i++) {
-      arr.push(
-        <input
-          type="number"
-          value={this.count}
-          onChange={this.handleWeightsChange}
-          placeholder={"0"}
-        ></input>
-      );
+      arr.push(<Weights />);
     }
 
     return arr.map((weight) => <td>{weight}</td>);
@@ -51,7 +40,9 @@ class Exercise extends Component {
         <ReactBootStrap.Table striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>{this.state.name}</th>
+              <th>
+                <h1>{this.props.name}</h1>
+              </th>
             </tr>
           </thead>
           <tbody>
