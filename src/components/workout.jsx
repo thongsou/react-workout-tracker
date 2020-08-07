@@ -46,6 +46,7 @@ class Workout extends Component {
       reps: this.state.reps,
     });
     this.setState({ exercises: newArray });
+    this.setState({ displayModal: false });
   };
 
   render() {
