@@ -14,7 +14,6 @@ class Workout extends Component {
       reps: "",
       displayModal: false,
     };
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete = (name) => {
@@ -109,7 +108,7 @@ class Workout extends Component {
               sets={exercise.sets}
               reps={exercise.reps}
             />
-            <button onClick={this.handleDelete(exercise.name)}>
+            <button onClick={() => this.handleDelete(exercise.name)}>
               Delete {exercise.name}
             </button>
           </section>
