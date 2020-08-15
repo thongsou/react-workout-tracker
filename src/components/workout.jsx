@@ -17,12 +17,12 @@ class Workout extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete = () => {
-    this.setState({
-      exercises: this.state.exercises.filter((ex) => {
-        return ex.name !== this.state.name;
-      }),
+  handleDelete = (name) => {
+    let arr = this.state.exercises;
+    arr = arr.filter((ex) => {
+      return ex.name !== name;
     });
+    this.setState({ exercises: arr });
   };
 
   openModal = (e) => {
@@ -109,7 +109,9 @@ class Workout extends Component {
               sets={exercise.sets}
               reps={exercise.reps}
             />
-            <button onClick={this.handleDelete}>Delete {exercise.name}</button>
+            <button onClick={this.handleDelete(exercise.name)}>
+              Delete {exercise.name}
+            </button>
           </section>
         ))}
       </div>
