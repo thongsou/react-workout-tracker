@@ -14,7 +14,16 @@ class Workout extends Component {
       reps: "",
       displayModal: false,
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
+
+  handleDelete = () => {
+    this.setState({
+      exercises: this.state.exercises.filter((ex) => {
+        return ex.name !== this.state.name;
+      }),
+    });
+  };
 
   openModal = (e) => {
     this.setState({ displayModal: true });
@@ -93,12 +102,15 @@ class Workout extends Component {
           <button onClick={this.closeModal}>Close</button>
         </Modal>
         {this.state.exercises.map((exercise) => (
-          <Exercise
-            key={exercise.id}
-            name={exercise.name}
-            sets={exercise.sets}
-            reps={exercise.reps}
-          />
+          <section>
+            <Exercise
+              key={exercise.id}
+              name={exercise.name}
+              sets={exercise.sets}
+              reps={exercise.reps}
+            />
+            <button onClick={this.handleDelete}>Delete {exercise.name}</button>
+          </section>
         ))}
       </div>
     );
