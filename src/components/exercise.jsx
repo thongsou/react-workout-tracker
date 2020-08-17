@@ -4,7 +4,17 @@ import * as ReactBootStrap from "react-bootstrap";
 import Weights from "./weights";
 
 class Exercise extends Component {
-  renderSetsWithReps = () => {
+  renderSets = () => {
+    var arr = [];
+    var numOfCols = this.props.sets;
+    for (var i = 0; i < numOfCols; i++) {
+      arr.push(i + 1);
+    }
+
+    return arr.map((set) => <td>Set#{set}</td>);
+  };
+
+  renderReps = () => {
     var arr = [];
     var numOfCols = this.props.sets;
     for (var i = 0; i < numOfCols; i++) {
@@ -33,12 +43,13 @@ class Exercise extends Component {
               <th>
                 <h1>{this.props.name}</h1>
               </th>
+              {this.renderSets()}
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Reps</td>
-              {this.renderSetsWithReps()}
+              {this.renderReps()}
             </tr>
             <tr>
               <td>Weight</td>
